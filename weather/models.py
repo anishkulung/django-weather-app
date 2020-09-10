@@ -8,3 +8,9 @@ class City(models.Model):
 
     class Meta:
         verbose_name_plural = 'cities'
+class City_cord(models.Model):
+	lon = models.FloatField(null=True,blank=True)
+	lat = models.FloatField(null=True,blank=True)
+	city = models.ForeignKey('City',on_delete= models.CASCADE)
+	def __str__(self):
+		return "longitude:{},latitude:{}".format(self.lon,self.lat)
